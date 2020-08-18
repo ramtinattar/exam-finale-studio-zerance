@@ -1,0 +1,22 @@
+<section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="product-examen">
+  {%- assign product = all_products[section.settings.featured-examen-product] -%}
+</section>
+{% schema %}
+{
+  "name": "Product Examen",
+  "settings": [
+    {
+       "type":      "product",
+       "id":        "featured-examen-product",
+       "label":     "product",
+       "info":      "product"
+    }
+  ],
+  "presets": [
+   {
+     "category": "Product Examen",
+     "name": "Product Examen"
+   }
+ ]
+}
+{% endschema %}

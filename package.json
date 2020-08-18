@@ -1,0 +1,31 @@
+{
+  "name": "exam-finale-studio-zerance",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "growl": "^1.10.5",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-jshint": "^2.1.0",
+    "grunt-contrib-qunit": "^4.0.0",
+    "grunt-contrib-uglify": "^5.0.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-shopify": "^1.0.2"
+  },
+  "devDependencies": {
+    "grunt": "^1.2.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ramtinattar/exam-finale-studio-zerance.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ramtinattar/exam-finale-studio-zerance/issues"
+  },
+  "homepage": "https://github.com/ramtinattar/exam-finale-studio-zerance#readme"
+}
