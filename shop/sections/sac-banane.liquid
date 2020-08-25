@@ -1,0 +1,29 @@
+{% if section.settings.sac-et-banane != false %}
+  <section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="sac-banane">
+      {% if product.metafields.global2.image != blank %}
+        <div class="sac-banane__image">{{ product.metafields.global2.image }}</div>
+      {% endif %}
+      <div class="sac-banane__description">
+        {% if product.metafields.global2.title1 != blank %}
+          <h2 class="sac-banane__title">{{ product.metafields.global2.title1 }}</h2>
+        {% endif %}
+        {% if product.metafields.global2.subtitle1 != blank %}
+          <p class="sac-banane__subtitle">{{ product.metafields.global2.subtitle1 }}</p>
+        {% endif %}
+      </div>
+  </section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "more information product",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "sac-et-banane",
+      "label": "Show more details of product",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

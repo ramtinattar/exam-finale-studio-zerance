@@ -387,7 +387,7 @@ $grid-breakpoint-has-push: ($small, $medium-up);
 $color-text: #3a3a3a;
 $color-text-shadow: rgba(0,0,0,0.4);
 $color-body-text: #333232;
-$color-sale-text: #EA0606;
+$color-sale-text: #ea0606;
 $color-small-button-text-border: #3a3a3a;
 $color-text-field: #ffffff;
 $color-text-field-text: #000000;
@@ -490,7 +490,7 @@ $z-index-predictive-search-wrapper: 1000;
 $z-index-skip-to-content: 10000; // really high to be safe of app markup
 
 /*================ SVG ================*/
-$svg-select-icon: #{'//cdn.shopify.com/s/files/1/0466/0461/5845/t/1/assets/ico-select.svg?2'};
+$svg-select-icon: #{'//cdn.shopify.com/s/files/1/0466/0461/5845/t/1/assets/ico-select.svg?v=2900367270910467858'};
 
 /*================ Drawers ================*/
 $transition-drawer: all $transition-duration-slow cubic-bezier(0.29, 0.63, 0.44, 1);

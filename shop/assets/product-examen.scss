@@ -1,0 +1,146 @@
+.product-examen__section {
+  padding-bottom: 1px;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.product-examen__image-container {
+  display: inline;
+  width: 60%;
+  // margin-left: 50px;
+}
+
+.product-examen__image {
+  width: 54%;
+  margin-left: 50px;
+  margin-bottom: -6px;
+}
+
+.product-examen__image:nth-child(1) {
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.product-examen__image:nth-child(2) {
+  width: 27%;
+  display: inline-block;
+  margin-top: 5px;
+  margin-right: -4px;
+}
+
+.product-examen__image:nth-child(3) {
+  width: 27%;
+  display: inline;
+  margin-left: 0;
+}
+
+.product-examen__information-container {
+  display: inline-block;
+  position: absolute;
+  width: 40%;
+  top: 100px;
+  right: 0;
+  padding-left: 60px;
+  margin-right: 10px;
+  position: fixed;
+}
+
+.product-examen__information-container-child {
+  width: 80%;
+}
+
+.product-examen__title {
+  display: inline;
+  @media(max-width: 1056px) {
+    display: block;
+    margin-bottom: 5px;
+  }
+}
+
+.product-examen__price {
+  display: inline;
+  margin-left: 20px;
+  @media(max-width: 1056px) {
+    margin-left: 0px;
+  }
+}
+
+.product-examen__max-price {
+  margin-left: 10px;
+  color: red;
+  text-decoration: line-through;
+  text-decoration-color: red;
+}
+
+.product-examen__vendor {
+  margin-top: 5px;
+}
+
+.product-examen__color-select {
+  height: 70px;
+  width: 450px;
+  outline: none;
+}
+
+.product-examen__size-label {
+  margin-bottom: 32px;
+  display: inline-block;
+  font-weight: bold;
+}
+
+.product-examen__size-label h3 {
+  font-size: 15px;
+  margin-bottom: 0;
+  margin-top: 20px;
+}
+
+.product-examen__size-label input {
+  position: absolute;
+}
+
+.product-examen__size-label__input-container {
+  display: inline-block;
+  margin-top: 10px;
+
+}
+
+.product-examen__hidden--checkmark {
+  position: relative;
+  height: 40px;
+  width: 45px;
+  background-color: white;
+  font-size: 15px;
+  line-height: 40px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.product-examen__form--btn {
+  height: 50px;
+  width: 450px;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+}
+
+.product-examen__reassurance {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.product-examen__reassurance-contects {
+  width: 33%;
+}
+
+.product-examen__reassurance__image {
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.product-examen__reassurance__title {
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+}

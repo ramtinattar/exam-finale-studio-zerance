@@ -1,39 +1,179 @@
 {
   "current": {
+    "color_text": "#3a3a3a",
+    "color_body_text": "#333232",
+    "color_sale_text": "#ea0606",
+    "color_button": "#3a3a3a",
+    "color_button_text": "#ffffff",
+    "color_small_button_text_border": "#3a3a3a",
+    "color_text_field_text": "#000000",
+    "color_text_field_border": "#cccccc",
+    "color_text_field": "#ffffff",
+    "color_image_overlay_text": "#ffffff",
+    "color_image_overlay": "#685858",
+    "image_overlay_opacity": 40,
+    "color_borders": "#ebebeb",
+    "color_body_bg": "#ffffff",
+    "type_header_font": "helvetica_n7",
+    "type_header_base_size": 26,
+    "type_base_font": "helvetica_n4",
+    "type_base_size": 15,
+    "predictive_search_enabled": true,
+    "predictive_search_show_vendor": false,
+    "predictive_search_show_price": false,
+    "share_facebook": true,
+    "share_twitter": true,
+    "share_pinterest": true,
+    "social_twitter_link": "",
+    "social_facebook_link": "",
+    "social_pinterest_link": "",
+    "social_instagram_link": "",
+    "social_tumblr_link": "",
+    "social_snapchat_link": "",
+    "social_youtube_link": "",
+    "social_vimeo_link": "",
+    "favicon": "",
+    "enable_ajax": true,
+    "checkout_header_image": "",
+    "checkout_logo_image": "",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_accent_color": "#197bbd",
+    "checkout_button_color": "#197bbd",
+    "checkout_error_color": "#e32c2b",
     "sections": {
       "header": {
         "type": "header",
         "settings": {
+          "align_logo": "left",
+          "logo": "",
+          "logo_max_width": 100,
+          "main_linklist": "main-menu",
+          "message": false,
+          "home_page_only": true,
+          "message_text": "Annoncez quelque chose ici",
+          "message_link": "",
+          "color_bg": "#3a3a3a",
+          "color_text": "#ffffff"
         }
       },
-      "hero-1": {
-        "type": "hero",
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "footer-0": {
+            "type": "link_list",
+            "settings": {
+              "title": "Liens rapides",
+              "menu": "footer"
+            }
+          },
+          "footer-1": {
+            "type": "newsletter",
+            "settings": {
+              "title": "Newsletter"
+            }
+          }
+        },
+        "block_order": [
+          "footer-0",
+          "footer-1"
+        ],
         "settings": {
-          "hero_size": "large",
-          "text_size": "large"
+          "show_payment_icons": true,
+          "color_footer_bg": "#f6f6f6",
+          "color_footer_text": "#333232",
+          "show_locale_selector": true,
+          "show_currency_selector": true
+        }
+      },
+      "1597756220224": {
+        "type": "product-examen",
+        "blocks": {
+          "1597838751412": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Capture_d_ecran_2020-08-19_a_20.42-1.png",
+              "title": "Coton 100% BIO"
+            }
+          },
+          "1597838817420": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Capture_d_ecran_2020-08-19_a_20.42.png",
+              "title": "-50% d'eau"
+            }
+          },
+          "1597838830378": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Capture_d_ecran_2020-08-19_a_20.41.png",
+              "title": "Matières recyclées"
+            }
+          }
+        },
+        "block_order": [
+          "1597838751412",
+          "1597838817420",
+          "1597838830378"
+        ],
+        "settings": {
+          "featured-examen-product": "robe-alexander"
         }
       },
       "feature-row": {
         "type": "feature-row",
+        "disabled": true,
         "settings": {
+          "image": "",
+          "layout": "left",
+          "title": "Image avec texte",
+          "text": "<p>Ajoutez une image à un long texte pour mettre l'accent sur un produit de votre choix, une collection, ou un article de blog. Ajoutez des détails sur la disponibilité, le style, ou mettez un commentaire client en avant.<\/p>",
+          "button_label": "",
+          "button_link": ""
         }
       },
       "feature-columns": {
         "type": "feature-columns",
+        "disabled": true,
         "blocks": {
           "feature-columns-0": {
             "type": "text_block",
             "settings": {
+              "enable_image": true,
+              "image": "",
+              "title": "Ajouter un titre ou un slogan",
+              "text": "<p>Partagez des articles de blog, des produits ou des promotions avec vos clients. Utilisez ce texte pour décrire vos produits, partager des détails sur leur disponibilité ou leur style, ou encore pour afficher des FAQ et avis récents.<\/p>",
+              "button_label": "",
+              "button_link": ""
             }
           },
           "feature-columns-1": {
             "type": "text_block",
             "settings": {
+              "enable_image": true,
+              "image": "",
+              "title": "Ajouter un titre ou un slogan",
+              "text": "<p>Partagez des articles de blog, des produits ou des promotions avec vos clients. Utilisez ce texte pour décrire vos produits, partager des détails sur leur disponibilité ou leur style, ou encore pour afficher des FAQ et avis récents.<\/p>",
+              "button_label": "",
+              "button_link": ""
             }
           },
           "feature-columns-2": {
             "type": "text_block",
             "settings": {
+              "enable_image": true,
+              "image": "",
+              "title": "Ajouter un titre ou un slogan",
+              "text": "<p>Partagez des articles de blog, des produits ou des promotions avec vos clients. Utilisez ce texte pour décrire vos produits, partager des détails sur leur disponibilité ou leur style, ou encore pour afficher des FAQ et avis récents.<\/p>",
+              "button_label": "",
+              "button_link": ""
             }
           }
         },
@@ -43,37 +183,45 @@
           "feature-columns-2"
         ],
         "settings": {
-          "title": ""
+          "title": "",
+          "align_text": "left"
         }
       },
       "collection": {
         "type": "collection",
+        "disabled": true,
         "settings": {
-          "grid": 4
-        }
-      },
-      "hero-2": {
-        "type": "hero",
-        "settings": {
-          "text_size": "large"
+          "title": "Collection en vedette",
+          "collection": "",
+          "grid": 4,
+          "rows": 2,
+          "show_vendor": false,
+          "show_view_all": false
         }
       },
       "quotes": {
         "type": "quotes",
+        "disabled": true,
         "blocks": {
           "quotes-0": {
             "type": "quote",
             "settings": {
+              "quote": "<p>Ajoutez des avis et témoignages pour mettre en avant vos clients satisfaits.<\/p>",
+              "author": "Nom de l'auteur"
             }
           },
           "quotes-1": {
             "type": "quote",
             "settings": {
+              "quote": "<p>Ajoutez des avis et témoignages pour mettre en avant vos clients satisfaits.<\/p>",
+              "author": "Nom de l'auteur"
             }
           },
           "quotes-2": {
             "type": "quote",
             "settings": {
+              "quote": "<p>Ajoutez des avis et témoignages pour mettre en avant vos clients satisfaits.<\/p>",
+              "author": "Nom de l'auteur"
             }
           }
         },
@@ -88,20 +236,33 @@
       },
       "image-bar": {
         "type": "image-bar",
+        "disabled": true,
         "blocks": {
           "image-bar-0": {
             "type": "image",
             "settings": {
+              "image": "",
+              "alignment": "center",
+              "link": "",
+              "cta_label": ""
             }
           },
           "image-bar-1": {
             "type": "image",
             "settings": {
+              "image": "",
+              "alignment": "center",
+              "link": "",
+              "cta_label": ""
             }
           },
           "image-bar-2": {
             "type": "image",
             "settings": {
+              "image": "",
+              "alignment": "center",
+              "link": "",
+              "cta_label": ""
             }
           }
         },
@@ -111,39 +272,12 @@
           "image-bar-2"
         ],
         "settings": {
-        }
-      },
-      "footer": {
-        "type": "footer",
-        "blocks": {
-          "footer-0": {
-            "type": "link_list",
-            "settings": {
-            }
-          },
-          "footer-1": {
-            "type": "newsletter",
-            "settings": {
-            }
-          }
-        },
-        "block_order": [
-          "footer-0",
-          "footer-1"
-        ],
-        "settings": {
-          "show_payment_icons": true
+          "section_height": "medium"
         }
       }
     },
     "content_for_index": [
-      "hero-1",
-      "feature-row",
-      "feature-columns",
-      "collection",
-      "hero-2",
-      "quotes",
-      "image-bar"
+      "1597756220224"
     ]
   },
   "presets": {

@@ -1,6 +1,109 @@
-<section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="product-examen">
+<section id="section-{{ section.id }}" class="section product-examen__section" data-section-id="{{ section.id }}" data-section-type="product-examen">
   {%- assign product = all_products[section.settings.featured-examen-product] -%}
+  <div class="product-examen__image-container" data-banner>
+    {% for image in product.images %}
+      <img class="product-examen__image" src="{{ image.src | img_url: '1000x' }}"  alt="{{ image.src.alt }}" />
+    {% endfor %}
+  </div>
+  <div class="product-examen__information-container">
+    <div class="product-examen__information-container-child">
+      <h2 class="product-examen__title">{{ product.title | escape }}</h2>
+      <span class="product-examen__price">{{ product.price | money }}</span>
+      {% if product.compare_at_price_max > product.price %}
+        <span class="product-examen__max-price">{{ product.compare_at_price_max | money }}</span>&nbsp;&nbsp;
+      {% endif %}
+       <!-- Swym button on product pages -->
+        <div class="swym-dummy">
+         <span class="swym-button"></span>
+        </div>
+        <!-- Swym button on product pages -->
+        <p class="product-examen__vendor">{{ product.vendor | escape }}</p>
+       <form class="product-examen__form" method="post" action="/cart/add">
+         <!-- <input name="id" value="{{ product.selected_or_first_available_variant.id }}" type="hidden" /> -->
+        {% for variant in product.variants %}
+          <input name="id" value="{{ variant.id }}" data-variant-id="{{ variant.id }}" required="required" type="hidden"/>
+        {% endfor %}
+        <div class="product-examen__color-container">
+         <label class="product-examen__color-label">
+          <select class="product-examen__color-select">
+            {% for color_option in product.options_by_name['Color'].values %}
+              <option>{{ color_option }}</option>
+            {% endfor %}
+          </select>
+         </label>
+        </div>
+        <h3 class="product-examen__size-title">TAILLE</h3>
+         <div class="product-examen__size-container">
+          {% for size_option in product.options_by_name['Size'].values %}
+            <input type="radio" name="group1" id="{{ size_option }}" required="required"/>
+            <label for="{{ size_option }}"> {{ size_option }} </label>
+          {% endfor %}
+        </div>
+        <input class="product-examen__form--btn" type="submit" name="submit" value="AJOUTER" id="btn" />
+      </form>
+      <div class="product-examen__reassurance">
+        {% for block in section.blocks %}
+         {% unless block.type == 'image' %}{% continue %}{% endunless %}
+          <div class="product-examen__reassurance-contects">
+            {% unless block.settings.image == blank %}
+              <img class="product-examen__reassurance__image" src="{{ block.settings.image | img_url : '1000x' }}" alt="{{ block.settings.image.alt }}">
+            {% endunless %}
+            {% unless block.settings.title == blank %}
+              <div class="product-examen__reassurance__title">{{ block.settings.title }}</div>
+            {% endunless %}
+          </div>
+        {% endfor %}
+      </div>
+      {% if product.metafields.global.title1 != blank %}
+        <ul class="product-examen__reassurance__accordion-list">
+          {% if product.metafields.global.title1 != blank %}
+          <li>
+            <input type="checkbox" checked>
+            <i style="margin-top: 0"></i>
+            <h2 class="product-examen__reassurance__accordion-list__title">{{ product.metafields.global.title1 }}</h2>
+            <p class="product-examen__reassurance__accordion-list__description">{{ product.metafields.global.subtitle1 }}</p>
+          </li>
+          {% endif %}
+          {% if product.metafields.global.title2 != blank %}
+          <li>
+            <input type="checkbox" checked>
+            <i></i>
+            <h2 class="product-examen__reassurance__accordion-list__title">{{ product.metafields.global.title2 }}</h2>
+            <p class="product-examen__reassurance__accordion-list__description">{{ product.metafields.global.subtitle2 }}.</p>
+          </li>
+          {% endif %}
+          {% if product.metafields.global.title3 != blank %}
+          <li>
+            <input type="checkbox" checked>
+            <i></i>
+            <h2 class="product-examen__reassurance__accordion-list__title">{{ product.metafields.global.title3 }}</h2>
+            <p class="product-examen__reassurance__accordion-list__description">{{ product.metafields.global.subtitle3 }}</p>
+          </li>
+          {% endif %}
+        </ul>
+      {% endif %}
+      <div class="product-examen__media">
+        <a href="//www.facebook.com/sharer.php?u={{ shop.url | append: share_permalink }}"><img src="https://cdn.shopify.com/s/files/1/0466/0461/5845/files/facebook.png?v=1598015740" alt="Facebook"></a>
+        <a href="//twitter.com/share?text={{ share_title | url_param_escape }}&amp;url={{ shop.url | append: share_permalink }}"><img src="https://cdn.shopify.com/s/files/1/0466/0461/5845/files/twitter.png?v=1598015740" alt="Twitter"></a>
+        <a href="//pinterest.com/pin/create/button/?url={{ shop.url | append: share_permalink }}&amp;media={{ share_image | img_url: '1024x1024' }}&amp;description={{ share_title | url_param_escape }}"><img src="https://cdn.shopify.com/s/files/1/0466/0461/5845/files/pinterest.png?v=1598015740" alt="Pinterest"></a>
+        <a href="mailto:?&Body=I%20saw%20this%20and%20thought%20of%20you!%20 {{ shop.url | append: share_permalink }}"><img src="https://cdn.shopify.com/s/files/1/0466/0461/5845/files/mail.png?v=1598015741" alt="Mail"></a>
+      </div>
+      <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+    </div>
+  </div>
 </section>
+{% javascript %}
+
+{% for v in product.variants %}
+  id:{{v.id}}<br/>
+  option1:{{v.option1}}<br/>
+  option2:{{v.option2}}<br/>
+$seclectID [{{v.option1}}][{{v.option2}}] = id
+{% endfor %}
+
+
+
+{% endjavascript %}
 {% schema %}
 {
   "name": "Product Examen",
@@ -10,6 +113,24 @@
        "id":        "featured-examen-product",
        "label":     "product",
        "info":      "product"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        }
+      ]
     }
   ],
   "presets": [
