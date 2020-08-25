@@ -1,0 +1,61 @@
+{% if section.settings.news-letter-examen != false %}
+  <section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="news-letter-examen">
+    {% if section.settings.title != blank %}
+      <h2 class="news-letter-examen__title">{{ section.settings.title }}</h2>
+    {% endif %}
+    {% if section.settings.title != blank %}
+      <div class="news-letter-examen__subtitle">{{ section.settings.subtitle }}</div>
+    {% endif %}
+
+    {% form 'customer' %}
+      {{ form.errors | default_errors }}
+      {% if form.posted_successfully? %}
+        <p class="form--success">{{ 'general.newsletter_form.confirmation' | t }}</p>
+      {% else %}
+        <div class="input-group password__input-group">
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <input type="email"
+            name="contact[email]"
+            id="Email"
+            class="input-group__field newsletter__input"
+            value="{% if customer %}{{ customer.email }}{% endif %}"
+            placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}"
+            autocorrect="off"
+            autocapitalize="off">
+          <span class="input-group__btn">
+            <button type="submit" class="btn newsletter__submit" name="commit" id="Subscribe">
+              <span class="newsletter__submit-text--large"><img src="https://cdn.shopify.com/s/files/1/0466/0461/5845/files/Group_b7e103b6-11be-4f2d-a8d0-0b6a5d25846b.png?v=1598363388" alt="s'inscrire"/></span>
+            </button>
+          </span>
+        </div>
+      {% endif %}
+    {% endform %}
+
+  </section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "news letter examen",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "news-letter-examen",
+      "label": "Show news letter",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "title",
+      "default": "<p>Subscribe to our newsletter</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": "subtitle",
+      "default": "<p>write a subtitle</p>"
+    }
+  ]
+}
+{% endschema %}

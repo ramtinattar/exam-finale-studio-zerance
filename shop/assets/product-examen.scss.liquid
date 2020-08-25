@@ -471,6 +471,54 @@ $sans: 'Titillium Web', sans-serif;
 //   opacity: 1;
 // }
 
+// news-letter-examen.liquid
+
+#section-news-letter-examen {
+  position: relative;
+  background: white;
+}
+
+.news-letter-examen__title {
+  font-size: 15px;
+  letter-spacing: 0.3px;
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: 100;
+  padding-top: 72px;
+}
+
+.news-letter-examen__subtitle {
+  font-size: 55px;
+  letter-spacing: 1px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 54px;
+  letter-spacing: 0px;
+}
+
+.input-group {
+  display: flex;
+  transform: translate(-50%, 0);
+  position: relative;
+  left: 50%;
+  width: 25%;
+}
+
+input#Email {
+  border: none;
+  border-bottom: 2px solid;
+}
+
+button#Subscribe {
+    background: none;
+    border-bottom: 2px solid black;
+    margin-left: -1px;
+}
+
+.newsletter__submit {
+  width: auto !important;
+}
+
 // sac-banane.liquid
 
 #section-sac-banane {
@@ -481,11 +529,21 @@ $sans: 'Titillium Web', sans-serif;
   padding-bottom: 4%;
   background: white;
   position: relative;
+  @media(max-width: 850px) {
+    display: block;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: auto;
+  }
 }
 
 .sac-banane__image {
   width: 100%;
   margin-left: 118px;
+  @media(max-width: 850px) {
+    margin-left: 0;
+    margin-top: 40px;
+  }
 }
 
 .sac-banane__image img {
@@ -493,6 +551,11 @@ $sans: 'Titillium Web', sans-serif;
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+  @media(max-width: 850px) {
+    transform: translateX(-50%);
+    left: 50%;
+    top: 0;
+  }
 }
 
 .sac-banane__description {
@@ -502,6 +565,15 @@ $sans: 'Titillium Web', sans-serif;
   top: 50%;
   transform: translate(0, -50%);
   height: fit-content;
+  @media(max-width: 850px) {
+    margin-right: 0;
+    margin-left: 0;
+    top: 0;
+    transform: translate(0, 0);
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
 }
 
 .sac-banane__subtitle {
@@ -511,6 +583,11 @@ $sans: 'Titillium Web', sans-serif;
   font-size: 12px;
   @media(min-width: 1124px) {
     column-count: 2;
+  }
+  @media(max-width: 850px) {
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
   }
 }
 
