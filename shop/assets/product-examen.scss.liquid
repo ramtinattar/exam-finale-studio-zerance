@@ -70,23 +70,6 @@
   }
 }
 
-// slick on tablet and mobile
-
-.product-examen__image-container.slick-initialized.slick-slider {
-  display: flex;
-  flex-direction: row;
-}
-
-.prev_arrow,
-.next_arrow {
-  border: none;
-  background: none;
-  font-size: 40px;
-  outline: none;
-}
-
-// end of slick
-
 .product-examen__information-container {
   display: inline-block;
   position: fixed;
@@ -122,6 +105,10 @@
     display: block;
     margin-bottom: 5px;
   }
+  @media(max-width: 434px){
+    display: block;
+    margin-bottom: 5px;
+  }
 }
 .product-examen__price {
   display: inline;
@@ -129,6 +116,23 @@
   @media(min-width: 851px) and (max-width: 1280px) {
     margin-left: 0px;
   }
+  @media(max-width: 434px){
+    margin-left: 0px;
+  }
+}
+
+.slick-dots li button {
+  background: white;
+}
+
+.slick-dots li button:before {
+  font-size: 20px;
+  color: black;
+  line-height: 20px;
+}
+
+.slick-dots li.slick-active button:before  {
+  color: black;
 }
 
 .product-examen__max-price {
@@ -209,7 +213,7 @@
   width: 47px;
   height: 40px;
   border: solid 2px white;
-  text-align: center;
+  text-align: left;
   font-size: 16px;
   font-weight: 600;
   line-height: 40px;
@@ -222,7 +226,7 @@
 }
 
 input[type="radio"]:checked + label {
-  border: solid 2px black;
+  text-decoration: underline;
 }
 
 .product-examen__form--btn {
@@ -422,10 +426,16 @@ $sans: 'Titillium Web', sans-serif;
 
 // review window
 
+@media (min-width: 851px) {
 .spr-review {
   margin: 40px !important;
   border-bottom: 1px solid !important;
   padding-bottom: 20px !important;
+  border-top: none !important;
+}
+
+.spr-form {
+  border-top: none !important;
 }
 
 .spr-form>form {
@@ -436,6 +446,11 @@ $sans: 'Titillium Web', sans-serif;
   background: #ededed !important;
   transform: translate(130%, 0);
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0) !important;
+  position: fixed;
+  right: 0;
+  width: 40%;
+  height: 100%;
+  top: 0;
 }
 
 .close-button1 {
@@ -456,20 +471,12 @@ $sans: 'Titillium Web', sans-serif;
   transform: rotate(90deg);
 }
 
-.peg {
+.spr-content__new {
   transform: translate(0%, 0);
-  position: fixed;
-  right: 0;
-  width: 40%;
-  height: 100%;
-  top: 0;
+}
 }
 
 // products-recommendation__section
-
-// .products-recommendation__section {
-//   opacity: 1;
-// }
 
 // news-letter-examen.liquid
 
@@ -502,17 +509,20 @@ $sans: 'Titillium Web', sans-serif;
   position: relative;
   left: 50%;
   width: 25%;
+  min-width: 300px;
 }
 
 input#Email {
   border: none;
   border-bottom: 2px solid;
+  outline: none;
 }
 
 button#Subscribe {
-    background: none;
-    border-bottom: 2px solid black;
-    margin-left: -1px;
+  background: none;
+  border-bottom: 2px solid black;
+  margin-left: -1px;
+  outline: none;
 }
 
 .newsletter__submit {

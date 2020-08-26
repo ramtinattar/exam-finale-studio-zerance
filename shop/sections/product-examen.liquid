@@ -19,15 +19,21 @@
         <!-- Swym button on product pages -->
         <p class="product-examen__vendor">{{ product.vendor | escape }}</p>
        <form class="product-examen__form" method="post" action="/cart/add">
-         <!-- <input name="id" value="{{ product.selected_or_first_available_variant.id }}" type="hidden" /> -->
-        {% for variant in product.variants %}
-          <input name="id" value="{{ variant.id }}" data-variant-id="{{ variant.id }}" required="required" type="hidden"/>
-        {% endfor %}
+         <select name="id" this-option1 style="display: none">
+          {% for variant in product.variants %}
+            <option name="ramtin" value="{{ variant.title }}" data-variant-id="{{ variant.id }}"> {{ variant.title }}</option>
+          {% endfor %}
+        </select>
+        <select this-option this-option2 style="display: none">
+          {% for size_option in product.options_by_name['Size'].values %}
+            <option value="{{ size_option }}">{{ size_option }}</option>
+          {% endfor %}
+        </select>
         <div class="product-examen__color-container">
          <label class="product-examen__color-label">
-          <select class="product-examen__color-select">
+          <select this-option this-option3 class="product-examen__color-select">
             {% for color_option in product.options_by_name['Color'].values %}
-              <option>{{ color_option }}</option>
+              <option value="{{ color_option }}">{{ color_option }}</option>
             {% endfor %}
           </select>
          </label>
@@ -35,7 +41,7 @@
         <h3 class="product-examen__size-title">TAILLE</h3>
          <div class="product-examen__size-container">
           {% for size_option in product.options_by_name['Size'].values %}
-            <input type="radio" name="group1" id="{{ size_option }}" required="required"/>
+            <input type="radio" this-option4 name="group1" value="{{ size_option }}" id="{{ size_option }}" required="required"/>
             <label for="{{ size_option }}"> {{ size_option }} </label>
           {% endfor %}
         </div>
@@ -92,18 +98,7 @@
     </div>
   </div>
 </section>
-{% javascript %}
 
-{% for v in product.variants %}
-  id:{{v.id}}<br/>
-  option1:{{v.option1}}<br/>
-  option2:{{v.option2}}<br/>
-$seclectID [{{v.option1}}][{{v.option2}}] = id
-{% endfor %}
-
-
-
-{% endjavascript %}
 {% schema %}
 {
   "name": "Product Examen",

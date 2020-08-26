@@ -7,70 +7,87 @@ var button2 = document.createElement("div");
 button2.classList.add("close-button2");
 
 document.getElementById('shopify-product-reviews').onclick = function() {
-  document.getElementsByClassName('spr-content')[0].appendChild(button1).appendChild(button2)
+  document.getElementsByClassName('spr-content')[0].appendChild(button1).appendChild(button2);
 };
 
 
 $(document).ready(function() {
-  $('#shopify-product-reviews').click(function() {
-    $('.spr-content').addClass('peg');
+  $('body').on('click', '.spr-summary-actions-togglereviews', function() {
+    $('.spr-content').addClass('spr-content__new');
+    $('#reviews_5552989438117').css('display', 'block');
+    $('#form_5552989438117').css('display', 'none');
     console.log('add');
   });
 });
 
 $(document).ready(function() {
-  $(button1).click(function() {
-    $('.spr-content').removeClass('peg');
+  $('body').on('click', '.spr-summary-actions-newreview', function() {
+    $('.spr-content').addClass('spr-content__new');
+    $('#form_5552989438117').css('display', 'block');
+    $('#reviews_5552989438117').css('display', 'none');
+    console.log('add');
+  });
+});
+
+$(document).ready(function() {
+  $('body').on('click', '.close-button1', function() {
+    $('.spr-content').removeClass('spr-content__new');
     console.log('delete');
   });
 });
 
 // add to cart
 
+$(document).ready(function () {
+  $("[this-option]").on("change", function () {
+    let option2 = $("[this-option2]").val(),
+        option3 = $("[this-option3]").val();
+    $("[this-option1]").val(option2 + ' / ' + option3);
+  });
+});
+
 $(document).ready(function() {
 
-  var form = $('form[action="/cart/add"]');
-
-  $(form).find('[data-variant-id]').on('click', function() {
-    var id = $(this).data('variant-id');
-    console.log(id);
-    $(form).find('input[name="id"]').val(id);
+  $('.product-examen__form--btn').on('click', function() {
+    var id = $('[data-variant-id]:selected').data('variant-id');
+    $('option[name="ramtin"]').val(id);
   });
 
-
-  var hiddenInput = $('[data-variant-id]');
-
-  $("input[type='radio']").click(function () {
-    for (i = 1; i <= hiddenInput.index; i++) {
-     $(i).select();
-    }
-  });
 })
+
+$(document).ready(function () {
+    $('[this-option4]').on("change", function () {
+      let option4 = $("[this-option4]:checked").val();
+      $("[this-option2]").val(option4);
+      let option2 = $("[this-option2]").val(),
+          option3 = $("[this-option3]").val();
+      $("[this-option1]").val(option2 + ' / ' + option3);
+    });
+});
 
 // product photos
 
-jQuery(window).on('resize', function() {
+var x = window.matchMedia("(min-width: 851px)");
 
-    var viewportWidth = jQuery(window).width();
+function myFunction(x) {
 
-    var settings = {
-      bannerSelector : '[data-banner]',
-      arrows: true,
-      dots: false,
-      dotsClass: 'slick-dots'
-      };
+  if (x.matches) {
+    $('[data-banner]').slick('unslick');
+  }
 
-    if (viewportWidth > 850) {
-        $(settings.bannerSelector).slick('unslick');
-    }
+  else {
+    $('[data-banner]').slick({
+        prevArrow:'<button type="button" class="prev_arrow arrow">←</button>',
+        nextArrow:'<button type="button" class="next_arrow arrow">→</button>',
+        arrows: false,
+        dots: true,
+        dotsClass: 'slick-dots',
+        adaptiveHeight: true,
+        autoplay: true,
+        autoplaySpeed: 2000
+      });
+  };
+};
 
-    else {
-      $(settings.bannerSelector).slick({
-          prevArrow:'<button type="button" class="prev_arrow arrow">￩</button>',
-          nextArrow:'<button type="button" class="next_arrow arrow">￫</button>',
-          arrows: settings.arrows,
-          dots: settings.dots,
-          adaptiveHeight: true
-        })
-    }
-});
+myFunction(x);
+x.addListener(myFunction);
