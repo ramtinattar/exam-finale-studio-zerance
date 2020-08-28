@@ -12,20 +12,14 @@
       {% if product.compare_at_price_max > product.price %}
         <span class="product-examen__max-price">{{ product.compare_at_price_max | money }}</span>&nbsp;&nbsp;
       {% endif %}
-       <!-- Swym button on product pages -->
-        <div class="swym-dummy">
-         <span class="swym-button"></span>
-        </div>
-        <!-- Swym button on product pages -->
+      {% if section.settings.show_wishlist == true %}
+         <!-- Swym button on product pages -->
+          <div class="swym-dummy">
+           <span class="swym-button"></span>
+          </div>
+          <!-- Swym button on product pages -->
         <p class="product-examen__vendor">{{ product.vendor | escape }}</p>
-
-
-
-
-
-
-
-
+        {% endif %}
        <form class="product-examen__form" method="post" action="/cart/add">
          <select name="id" this-option1 style="display: none">
           {% for variant in product.variants %}
@@ -60,23 +54,21 @@
         </div>
         <input class="product-examen__form--btn" type="submit" name="submit" value="AJOUTER" id="btn" />
       </form>
-
-
-
-
-      <div class="product-examen__reassurance">
-        {% for block in section.blocks %}
-         {% unless block.type == 'image' %}{% continue %}{% endunless %}
-          <div class="product-examen__reassurance-contects">
-            {% unless block.settings.image == blank %}
-              <img class="product-examen__reassurance__image" src="{{ block.settings.image | img_url : '1000x' }}" alt="{{ block.settings.image.alt }}">
-            {% endunless %}
-            {% unless block.settings.title == blank %}
-              <div class="product-examen__reassurance__title">{{ block.settings.title }}</div>
-            {% endunless %}
-          </div>
-        {% endfor %}
-      </div>
+      {% if section.settings.show_reassurance == true %}
+        <div class="product-examen__reassurance">
+          {% for block in section.blocks %}
+           {% unless block.type == 'image' %}{% continue %}{% endunless %}
+            <div class="product-examen__reassurance-contects">
+              {% unless block.settings.image == blank %}
+                <img class="product-examen__reassurance__image" src="{{ block.settings.image | img_url : '1000x' }}" alt="{{ block.settings.image.alt }}">
+              {% endunless %}
+              {% unless block.settings.title == blank %}
+                <div class="product-examen__reassurance__title">{{ block.settings.title }}</div>
+              {% endunless %}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
       {% if product.metafields.global.title1 != blank %}
         <ul class="product-examen__reassurance__accordion-list">
           {% if product.metafields.global.title1 != blank %}
@@ -105,13 +97,17 @@
           {% endif %}
         </ul>
       {% endif %}
-      <div class="product-examen__media">
-        <a href="//www.facebook.com/sharer.php?u={{ shop.url | append: share_permalink }}"><img src="https://cdn.shopify.com/s/files/1/0466/0461/5845/files/facebook.png?v=1598015740" alt="Facebook"></a>
-        <a href="//twitter.com/share?text={{ share_title | url_param_escape }}&amp;url={{ shop.url | append: share_permalink }}"><img src="https://cdn.shopify.com/s/files/1/0466/0461/5845/files/twitter.png?v=1598015740" alt="Twitter"></a>
-        <a href="//pinterest.com/pin/create/button/?url={{ shop.url | append: share_permalink }}&amp;media={{ share_image | img_url: '1024x1024' }}&amp;description={{ share_title | url_param_escape }}"><img src="https://cdn.shopify.com/s/files/1/0466/0461/5845/files/pinterest.png?v=1598015740" alt="Pinterest"></a>
-        <a href="mailto:?&Body=I%20saw%20this%20and%20thought%20of%20you!%20 {{ shop.url | append: share_permalink }}"><img src="https://cdn.shopify.com/s/files/1/0466/0461/5845/files/mail.png?v=1598015741" alt="Mail"></a>
-      </div>
-      <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+      {% if section.settings.show_media == true %}
+        <div class="product-examen__media">
+          <a href="//www.facebook.com/sharer.php?u={{ shop.url | append: share_permalink }}"><img src="https://cdn.shopify.com/s/files/1/0466/0461/5845/files/facebook.png?v=1598015740" alt="Facebook"></a>
+          <a href="//twitter.com/share?text={{ share_title | url_param_escape }}&amp;url={{ shop.url | append: share_permalink }}"><img src="https://cdn.shopify.com/s/files/1/0466/0461/5845/files/twitter.png?v=1598015740" alt="Twitter"></a>
+          <a href="//pinterest.com/pin/create/button/?url={{ shop.url | append: share_permalink }}&amp;media={{ share_image | img_url: '1024x1024' }}&amp;description={{ share_title | url_param_escape }}"><img src="https://cdn.shopify.com/s/files/1/0466/0461/5845/files/pinterest.png?v=1598015740" alt="Pinterest"></a>
+          <a href="mailto:?&Body=I%20saw%20this%20and%20thought%20of%20you!%20 {{ shop.url | append: share_permalink }}"><img src="https://cdn.shopify.com/s/files/1/0466/0461/5845/files/mail.png?v=1598015741" alt="Mail"></a>
+        </div>
+      {% endif %}
+      {% if section.settings.show_reviews == true %}
+        <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+      {% endif %}
     </div>
   </div>
 </section>
@@ -125,6 +121,30 @@
        "id":        "featured-examen-product",
        "label":     "product",
        "info":      "product"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_wishlist",
+      "label": "Show wishlist button",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_reassurance",
+      "label": "Show reassurance",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_media",
+      "label": "Show media",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_reviews",
+      "label": "Show reviews",
+      "default": true
     }
   ],
   "blocks": [

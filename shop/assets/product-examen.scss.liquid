@@ -426,7 +426,6 @@ $sans: 'Titillium Web', sans-serif;
 
 // review window
 
-@media (min-width: 851px) {
 .spr-review {
   margin: 40px !important;
   border-bottom: 1px solid !important;
@@ -452,6 +451,9 @@ $sans: 'Titillium Web', sans-serif;
   height: 100%;
   top: 0;
   overflow: scroll;
+  @media(max-width: 850px) {
+    width: 70%;
+  }
 }
 
 .close-button1 {
@@ -474,8 +476,9 @@ $sans: 'Titillium Web', sans-serif;
 
 .spr-content__new {
   transform: translate(0%, 0);
+  z-index: 1;
 }
-}
+
 
 // products-recommendation__section
 
