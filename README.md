@@ -19,3 +19,4 @@ Sur la section Instagram, vous pouvez ajouter votre compte en utilisant l'applic
 Après nous avons également la section 'sac et bananes' qui est totalement ajoutable avec des metafields comme demandé .
 
 J'espère que cela vous plaît.
+Vidéo d'explication : https://www.loom.com/share/60e9a8232b484509ba78fdcddfb364cf
