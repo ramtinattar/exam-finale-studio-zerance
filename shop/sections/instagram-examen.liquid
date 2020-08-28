@@ -1,0 +1,37 @@
+{% if section.settings.show-instagram == true %}
+  <section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="instagram-section" >
+    {% if section.settings.image != blank %}
+      <img class="instagram-section__logo" src="{{ section.settings.image | img_url : '250x' }}" alt="{{ section.settings.image.alt }}" />
+    {% endif %}
+    {% if section.settings.text != blank %}
+      <div class="instagram-section__second-title">{{ section.settings.text }}</div>
+    {% endif %}
+    <div id="insta-feed">
+    </div>
+  </section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "instagram section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "logo of instagram"
+    },
+    {
+      "type": "checkbox",
+      "id": "show-instagram",
+      "label": "<p>show instagram</p>",
+      "default": true
+    },
+    {
+     "type":      "text",
+     "id":        "text",
+     "label":     "write a second title here",
+     "default":   "<p>write a second title here</p>"
+    }
+  ]
+}
+{% endschema %}

@@ -102,5 +102,3 @@ function myFunction(x) {
 
 myFunction(x);
 x.addListener(myFunction);
-
-//
