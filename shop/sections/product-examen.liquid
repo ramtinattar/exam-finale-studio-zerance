@@ -5,7 +5,7 @@
       <img class="product-examen__image" src="{{ image.src | img_url: '1000x' }}"  alt="{{ image.src.alt }}" />
     {% endfor %}
   </div>
-  <div class="product-examen__information-container">
+  <div class="product-examen__information-container" id="sidebar">
     <div class="product-examen__information-container-child">
       <h2 class="product-examen__title">{{ product.title | escape }}</h2>
       <span class="product-examen__price">{{ product.price | money }}</span>
@@ -18,10 +18,23 @@
         </div>
         <!-- Swym button on product pages -->
         <p class="product-examen__vendor">{{ product.vendor | escape }}</p>
+
+
+
+
+
+
+
+
        <form class="product-examen__form" method="post" action="/cart/add">
          <select name="id" this-option1 style="display: none">
           {% for variant in product.variants %}
-            <option name="ramtin" value="{{ variant.title }}" data-variant-id="{{ variant.id }}"> {{ variant.title }}</option>
+            {% if variant.available == false %}
+              <option name="ramtin" value="{{ variant.title }}" data-variant-id="{{ variant.id }}" disabled="disabled"> {{ variant.title }}</option>
+            {% endif %}
+            {% if variant.available == true %}
+              <option name="ramtin" value="{{ variant.title }}" data-variant-id="{{ variant.id }}"> {{ variant.title }}</option>
+            {% endif %}
           {% endfor %}
         </select>
         <select this-option this-option2 style="display: none">
@@ -47,6 +60,10 @@
         </div>
         <input class="product-examen__form--btn" type="submit" name="submit" value="AJOUTER" id="btn" />
       </form>
+
+
+
+
       <div class="product-examen__reassurance">
         {% for block in section.blocks %}
          {% unless block.type == 'image' %}{% continue %}{% endunless %}

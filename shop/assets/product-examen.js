@@ -16,7 +16,7 @@ $(document).ready(function() {
     $('.spr-content').addClass('spr-content__new');
     $('#reviews_5552989438117').css('display', 'block');
     $('#form_5552989438117').css('display', 'none');
-    console.log('add');
+    console.log('add reviews');
   });
 });
 
@@ -25,7 +25,7 @@ $(document).ready(function() {
     $('.spr-content').addClass('spr-content__new');
     $('#form_5552989438117').css('display', 'block');
     $('#reviews_5552989438117').css('display', 'none');
-    console.log('add');
+    console.log('add new review');
   });
 });
 
@@ -46,15 +46,6 @@ $(document).ready(function () {
   });
 });
 
-$(document).ready(function() {
-
-  $('.product-examen__form--btn').on('click', function() {
-    var id = $('[data-variant-id]:selected').data('variant-id');
-    $('option[name="ramtin"]').val(id);
-  });
-
-})
-
 $(document).ready(function () {
     $('[this-option4]').on("change", function () {
       let option4 = $("[this-option4]:checked").val();
@@ -63,6 +54,26 @@ $(document).ready(function () {
           option3 = $("[this-option3]").val();
       $("[this-option1]").val(option2 + ' / ' + option3);
     });
+});
+
+$(document).ready(function() {
+  $('.product-examen__form--btn').on('click', function() {
+    var id = $('[data-variant-id]:selected').data('variant-id');
+    $('option[name="ramtin"]').val(id);
+  });
+})
+
+// disable options (not working)
+
+$("select[this-option1] option:disabled").each(function () {
+  let ramtin = $(this).val().split("/");
+  let ramtin2 = ramtin[0];
+  let ramtin3 = ramtin[1];
+
+  if ($('[this-option2]:selected').val(ramtin2)) {
+    $("select[this-option3]").find('option[value="' + ramtin2.value + '"]').prop("disabled", true);
+  }
+
 });
 
 // product photos
@@ -91,3 +102,56 @@ function myFunction(x) {
 
 myFunction(x);
 x.addListener(myFunction);
+
+//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$(function () {
+  var top = $("#sidebar").offset().top - parseFloat($("#sidebar").css("marginTop").replace(/auto/, 0));
+  var footTop = $("#section-news-letter-examen").offset().top - parseFloat($("#section-news-letter-examen").css("marginTop").replace(/auto/, 0));
+
+  var maxY = footTop - $("#sidebar").outerHeight();
+
+  $(window).scroll(function (evt) {
+    var y = $(this).scrollTop();
+    if (y >= top) {
+      if (y < maxY) {
+        $("#sidebar").addClass("fixed").removeAttr("style");
+      } else {
+        $("#sidebar").removeClass("fixed").css({ position: "absolute", top: maxY - top + "px"});
+      }
+    } else {
+      $("#sidebar").removeClass("fixed");
+    }
+  });
+});
